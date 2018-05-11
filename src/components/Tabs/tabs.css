@@ -1,0 +1,31 @@
+.tabsHeader {
+  display: flex;
+  padding: 10px 16px;
+}
+
+.tabsHeader--item {
+  flex: 1;
+  text-align: center;
+  font-size: 1.2rem;
+  line-height: 3rem;
+  cursor: pointer;
+  background-color: transparent;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.tabsHeader--item__selected {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  box-shadow: 0px -2px 4px 2px rgba(0, 0, 0, 0.1);
+}
+
+.tabsHeader--item__success {
+  background-color: #388e3c;
+  color: #fafafa;
+}
+
+.tabsHeader--item__failed {
+  background-color: #e57373;
+  color: #fafafa;
+}

@@ -1,0 +1,9 @@
+.codeEditor {
+  border-right: 1px solid rgba(0, 0, 0, 0.4);
+  padding-right: 10px;
+  background-color: #fafafa;
+}
+
+.codeEditor .CodeFlask__textarea, .codeEditor .CodeFlask__pre {
+  font-size: 1.2rem;
+}
