@@ -1,4 +1,8 @@
+const path = require('path');
+require('dotenv').config({ path: path.join(__dirname, '../.env') });
+
 const express = require('express');
+const { createRow, getUser } = require('./db')
 const app = express();
 
 const bodyParser = require('body-parser');
@@ -39,6 +43,16 @@ app.post('/api/tasks', (req, res) => {
     // In case of error response should look like so
     res.json({ ok: false, error: error.message });
   }
+});
+
+app.post('/submitForm', (req, res) => {
+  const { login, password, tabKey, result, type, name, store } = req.body;
+
+  getUser([login, password]).then(res => {
+    if(res.rowCount) {
+      createRow([tabKey, result, type, name, new Date().toISOString(), login, store])
+    }
+  })
 });
 
 app.listen(PORT, () => {

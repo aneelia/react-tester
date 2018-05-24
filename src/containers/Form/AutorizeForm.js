@@ -90,6 +90,28 @@ export class AutorizeForm extends Component {
     this.setState({ isFormOpened: false })
   }
 
+  handleSubmit = e => {
+    e.preventDefault()
+
+    const { tabKey, result, type, name, store } = this.props.results
+
+    const data = {
+      login: document.iAccInput.iName.value,
+      password: document.iAccInput.iAccID.value,
+      tabKey,
+      result,
+      type,
+      name,
+      store
+    }
+
+    fetch('/submitForm', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(data)
+    })
+  }
+
   render() {
     const { isFormOpened } = this.state
 console.log(this.props)
@@ -103,7 +125,7 @@ console.log(this.props)
         <Portal isOpened={isFormOpened}>
           <Dialog header="Input your credentials" onCloseDialog={this.handleCloseForm} 
           display={isFormOpened ? 'flex' : 'none'}>
-            <form name="iAccInput">
+            <form name="iAccInput" onSubmit={this.handleSubmit}>
               <Flex alignItems="center" flexDirection="column">
                 <Flex is="label" flexDirection="column" mb="1.2rem">
                   <Label>Name</Label>
