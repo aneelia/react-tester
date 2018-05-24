@@ -46,7 +46,7 @@ const TestComponent = ({
   code,
   setCode,
   submitQuestion,
-  tabKey,
+  tabKey
 }) => {
   return (
     <div>
@@ -73,7 +73,7 @@ const TestComponent = ({
           </Flex>
         </div>
       </div>
-      <AutorizeForm results={{tabKey, result}}/>
+      <AutorizeForm results={{ tabKey, result, type: 'test question', date: new Date(), name: 'test', store: 'postGre' }}/>
     </div>
   );
 };

@@ -92,6 +92,7 @@ export class AutorizeForm extends Component {
 
   render() {
     const { isFormOpened } = this.state
+console.log(this.props)
 
     return (
       <Flex justifyContent="center">
